@@ -15,13 +15,13 @@ public class Teacher implements Serializable {
 	private Date admissionDate;
 	private Double salary;
 	private String chief;
-	private String coordinatorr;
+	private String coordinator;
 	
 	public Teacher() {
 	}
 
 	public Teacher(Integer id, String name, String cpf, String phone, Date admissionDate, Double salary, String chief,
-			String coordinatorr) {
+			String coordinator) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -30,7 +30,7 @@ public class Teacher implements Serializable {
 		this.admissionDate = admissionDate;
 		this.salary = salary;
 		this.chief = chief;
-		this.coordinatorr = coordinatorr;
+		this.coordinator = coordinator;
 	}
 
 	public Integer getId() {
@@ -89,12 +89,12 @@ public class Teacher implements Serializable {
 		this.chief = chief;
 	}
 
-	public String getCoordinatorr() {
-		return coordinatorr;
+	public String getCoordinator() {
+		return coordinator;
 	}
 
-	public void setCoordinatorr(String coordinatorr) {
-		this.coordinatorr = coordinatorr;
+	public void setCoordinator(String coordinator) {
+		this.coordinator = coordinator;
 	}
 
 	public static long getSerialversionuid() {
@@ -121,7 +121,7 @@ public class Teacher implements Serializable {
 	@Override
 	public String toString() {
 		return "Teacher [id=" + id + ", name=" + name + ", cpf=" + cpf + ", phone=" + phone + ", admissionDate="
-				+ admissionDate + ", salary=" + salary + ", chief=" + chief + ", coordinatorr=" + coordinatorr + "]";
+				+ admissionDate + ", salary=" + salary + ", chief=" + chief + ", coordinator=" + coordinator + "]";
 	}
 	
 }
