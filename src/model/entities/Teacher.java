@@ -4,17 +4,17 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
-public class Teacher implements Serializable {
-
+public class Teacher implements Serializable{	
+	
 	private static final long serialVersionUID = 1L;
-
+	
 	private Integer id;
-	private String name;
+	private String name;	
 	private String cpf;
 	private String phone;
 	private Date admissionDate;
 	private Double salary;
-	private String chief;
+	private String Chief;
 	private String coordinator;
 	
 	public Teacher() {
@@ -29,7 +29,7 @@ public class Teacher implements Serializable {
 		this.phone = phone;
 		this.admissionDate = admissionDate;
 		this.salary = salary;
-		this.chief = chief;
+		Chief = chief;
 		this.coordinator = coordinator;
 	}
 
@@ -82,11 +82,11 @@ public class Teacher implements Serializable {
 	}
 
 	public String getChief() {
-		return chief;
+		return Chief;
 	}
 
 	public void setChief(String chief) {
-		this.chief = chief;
+		Chief = chief;
 	}
 
 	public String getCoordinator() {
@@ -121,7 +121,6 @@ public class Teacher implements Serializable {
 	@Override
 	public String toString() {
 		return "Teacher [id=" + id + ", name=" + name + ", cpf=" + cpf + ", phone=" + phone + ", admissionDate="
-				+ admissionDate + ", salary=" + salary + ", chief=" + chief + ", coordinator=" + coordinator + "]";
-	}
-	
+				+ admissionDate + ", salary=" + salary + ", Chief=" + Chief + ", coordinator=" + coordinator + "]";
+	}	
 }
