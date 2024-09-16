@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import application.Main;
+import gui.listeners.DataChangeListener;
 import gui.util.Alerts;
 import gui.util.Utils;
 import javafx.collections.FXCollections;
@@ -27,7 +28,7 @@ import javafx.stage.Stage;
 import model.entities.Teacher;
 import model.services.TeacherService;
 
-public class TeacherListController implements Initializable{
+public class TeacherListController implements Initializable, DataChangeListener{
 	
 	private TeacherService service;
 	
@@ -109,6 +110,7 @@ public class TeacherListController implements Initializable{
 			TeacherFormController controller = loader.getController();
 			controller.setTeacher(obj);
 			controller.setTeacherService(new TeacherService());
+			controller.subscribeDataChangeListener(this);;
 			controller.updateFormData();
 			
 			Stage dialogStage = new Stage();
@@ -123,5 +125,10 @@ public class TeacherListController implements Initializable{
 		catch (IOException e) {
 			Alerts.showAlert("IO Exception", "Error lçoading view", e.getMessage(), AlertType.ERROR);
 		}
+	}
+
+	@Override
+	public void onDataChanged() {
+		updateTableView();		
 	}
 }
