@@ -1,6 +1,5 @@
 package gui.util;
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
@@ -37,10 +36,10 @@ public class Utils {
 		}
 	}
 	
-	public static <T> void formatTableColumnDate(TableColumn<T, Date> tableColumn, String format) {
+	/*public static <T> void formatTableColumnDate(TableColumn<T, Date> tableColumn, String format) {
 		tableColumn.setCellFactory(column -> {
 			TableCell<T, Date> cell = new TableCell<T, Date>() {
-				private SimpleDateFormat sdf = new SimpleDateFormat(format);
+				//private SimpleDateFormat sdf = new SimpleDateFormat(format);
 
 				@Override
 				protected void updateItem(Date item, boolean empty) {
@@ -48,13 +47,13 @@ public class Utils {
 					if (empty) {
 						setText(null);
 					} else {
-						setText(sdf.format(item));
+						//setText(sdf.format(item));
 					}
 				}
 			};
 			return cell;
 		});
-	}
+	}*/
 
 	public static <T> void formatTableColumnDouble(TableColumn<T, Double> tableColumn, int decimalPlaces) {
 		tableColumn.setCellFactory(column -> {

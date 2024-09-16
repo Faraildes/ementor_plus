@@ -58,14 +58,14 @@ public class TeacherDaoJDBC implements TeacherDao {
 			rs = st.executeQuery();
 
 			List<Teacher> list = new ArrayList<>();
-
+			
 			while (rs.next()) {				
 				Teacher obj = new Teacher();
 				obj.setId(rs.getInt("Id"));
 				obj.setName(rs.getString("Name"));
 				obj.setCpf(rs.getString("Cpf"));
 				obj.setPhone(rs.getString("Phone"));
-				obj.setAdmissionDate(rs.getDate("AdmissionDate"));				
+				obj.setAdmissionDate(new java.util.Date(rs.getTimestamp("AdmissionDate").getTime()));				
 				obj.setSalary(rs.getDouble("Salary"));
 				obj.setChief(rs.getString("Chief"));
 				obj.setCoordinator(rs.getString("Coordinator"));
@@ -90,8 +90,8 @@ public class TeacherDaoJDBC implements TeacherDao {
 				"(Name, Cpf, Phone, AdmissionDate, Salary, Chief, Coordinator) " +
 				"VALUES " +
 				"(?, ?, ?, ?, ?, ?, ?)", 
-				Statement.RETURN_GENERATED_KEYS);
-
+				Statement.RETURN_GENERATED_KEYS);			
+			
 			st.setString(1, obj.getName());
 			st.setString(2, obj.getCpf());
 			st.setString(3, obj.getPhone());			
