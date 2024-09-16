@@ -28,7 +28,7 @@ public class TeacherDaoJDBC implements TeacherDao {
 		ResultSet rs = null;
 		try {
 			st = conn.prepareStatement(
-				"SELECT * FROM department WHERE Id = ?");
+				"SELECT * FROM teacher WHERE Id = ?");
 			st.setInt(1, id);
 			rs = st.executeQuery();
 			if (rs.next()) {
@@ -86,13 +86,19 @@ public class TeacherDaoJDBC implements TeacherDao {
 		PreparedStatement st = null;
 		try {
 			st = conn.prepareStatement(
-				"INSERT INTO department " +
-				"(Name) " +
+				"INSERT INTO teacher " +
+				"(Name, Cpf, Phone, AdmissionDate, Salary, Chief, Coordinator) " +
 				"VALUES " +
-				"(?)", 
+				"(?, ?, ?, ?, ?, ?, ?)", 
 				Statement.RETURN_GENERATED_KEYS);
 
 			st.setString(1, obj.getName());
+			st.setString(2, obj.getCpf());
+			st.setString(3, obj.getPhone());			
+			st.setDate(4, new java.sql.Date(obj.getAdmissionDate().getTime()));
+			st.setDouble(5, obj.getSalary());
+			st.setString(6, obj.getChief());
+			st.setString(7, obj.getCoordinator());
 
 			int rowsAffected = st.executeUpdate();
 			
@@ -120,7 +126,7 @@ public class TeacherDaoJDBC implements TeacherDao {
 		PreparedStatement st = null;
 		try {
 			st = conn.prepareStatement(
-				"UPDATE department " +
+				"UPDATE teacher " +
 				"SET Name = ? " +
 				"WHERE Id = ?");
 
@@ -142,7 +148,7 @@ public class TeacherDaoJDBC implements TeacherDao {
 		PreparedStatement st = null;
 		try {
 			st = conn.prepareStatement(
-				"DELETE FROM department WHERE Id = ?");
+				"DELETE FROM teacher WHERE Id = ?");
 
 			st.setInt(1, id);
 
